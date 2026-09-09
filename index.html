@@ -58,11 +58,10 @@
         }
 
         .hero {
-            background-image: linear-gradient(rgba(30, 60, 114, 0.65), rgba(42, 82, 152, 0.65)), url('https://images.unsplash.com/photo-1552820728-8ac41f1ce891?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.6), rgba(255, 107, 53, 0.4)), 
+                        linear-gradient(to right, #1e3c72, #2a5298);
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
             color: white;
             padding: 10rem 2rem;
             text-align: center;
@@ -72,9 +71,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
         }
 
         .hero::before {
+            content: '🚗';
+            position: absolute;
+            font-size: 400px;
+            opacity: 0.08;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .hero::after {
             content: '';
             position: absolute;
             top: 0;
@@ -200,8 +211,12 @@
         .service-image {
             width: 100%;
             height: 220px;
-            object-fit: cover;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            background: linear-gradient(135deg, #ff6b35, #ff8555);
+            color: white;
         }
 
         .service-content {
@@ -394,25 +409,21 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s;
             height: 280px;
+            background: linear-gradient(135deg, #ff6b35, #ff8555);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: white;
         }
 
         .gallery-item:hover {
             transform: scale(1.05);
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
         .contact-section {
-            background-image: linear-gradient(rgba(30, 60, 114, 0.7), rgba(42, 82, 152, 0.7)), url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.7), rgba(255, 107, 53, 0.3)), 
+                        linear-gradient(to right, #1e3c72, #2a5298);
             color: white;
             text-align: center;
             padding: 6rem 2rem;
@@ -422,9 +433,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.3);
         }
 
         .contact-section::before {
+            content: '🔧';
+            position: absolute;
+            font-size: 300px;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .contact-section::after {
             content: '';
             position: absolute;
             top: 0;
@@ -539,7 +562,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section with Professional Car Background -->
+    <!-- Hero Section with Professional Background -->
     <section class="hero">
         <div class="hero-content">
             <h1>Make Your Car Feel Brand New Again</h1>
@@ -551,16 +574,15 @@
         </div>
     </section>
 
-    <!-- Services Section with Images -->
+    <!-- Services Section with Visual Icons -->
     <section id="services" class="container">
         <h2>What We Do</h2>
         <p class="section-subtitle">Detailing that makes a difference. Choose a quick refresh or give your car the full treatment.</p>
         
         <div class="services">
             <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1595815621481-d1d23d8248bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Interior Valet" class="service-image">
+                <div class="service-image">🏎️</div>
                 <div class="service-content">
-                    <div class="service-icon">🏎️</div>
                     <h3>Interior Valet</h3>
                     <p>Vacuum, mats, plastics, glass and a thorough clean of the cabin.</p>
                     <ul>
@@ -573,9 +595,8 @@
             </div>
 
             <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1629896272373-48c0f23e7f5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Exterior Valet" class="service-image">
+                <div class="service-image">✨</div>
                 <div class="service-content">
-                    <div class="service-icon">✨</div>
                     <h3>Exterior Valet</h3>
                     <p>Safe hand wash, wheels, tyres, drying and exterior finishing.</p>
                     <ul>
@@ -588,9 +609,8 @@
             </div>
 
             <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Full Detail" class="service-image">
+                <div class="service-image">🌟</div>
                 <div class="service-content">
-                    <div class="service-icon">🌟</div>
                     <h3>Full Detail</h3>
                     <p>Our deepest clean, combining the interior and exterior for a complete transformation.</p>
                     <ul>
@@ -610,24 +630,12 @@
         <p class="section-subtitle">See the transformations we've made to customers' cars</p>
         
         <div class="gallery">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Car Detailing 1">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Car Detailing 2">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1629896272373-48c0f23e7f5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Car Detailing 3">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1595815621481-d1d23d8248bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Car Detailing 4">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1485794169075-89ac7d1d76a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Car Detailing 5">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Car Detailing 6">
-            </div>
+            <div class="gallery-item">🚗 Before</div>
+            <div class="gallery-item">✨ After</div>
+            <div class="gallery-item">🚗 Before</div>
+            <div class="gallery-item">✨ After</div>
+            <div class="gallery-item">🚗 Before</div>
+            <div class="gallery-item">✨ After</div>
         </div>
     </section>
 
@@ -710,7 +718,7 @@
         </div>
     </section>
 
-    <!-- Contact Section with Professional Garage Background -->
+    <!-- Contact Section with Professional Background -->
     <section id="contact" class="contact-section">
         <div class="contact-content">
             <h2>Ready to Book?</h2>
