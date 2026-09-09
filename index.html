@@ -58,15 +58,17 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.75) 0%, rgba(42, 82, 152, 0.75) 100%), 
-                        url('https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1200&q=80') center/cover;
+            background-image: linear-gradient(rgba(30, 60, 114, 0.65), rgba(42, 82, 152, 0.65)), url('https://images.unsplash.com/photo-1552820728-8ac41f1ce891?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             background-attachment: fixed;
             color: white;
-            padding: 8rem 2rem;
+            padding: 10rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 600px;
+            min-height: 700px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -79,27 +81,29 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.2) 0%, transparent 50%);
             pointer-events: none;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.7);
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 2rem;
             opacity: 0.98;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
         }
 
         .cta-buttons {
@@ -110,7 +114,7 @@
         }
 
         button, .btn {
-            padding: 0.85rem 2.5rem;
+            padding: 0.95rem 2.5rem;
             font-size: 1rem;
             border: none;
             border-radius: 8px;
@@ -124,13 +128,13 @@
         .btn-primary {
             background: #ff6b35;
             color: white;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
         }
 
         .btn-primary:hover {
             background: #e55a2b;
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
         }
 
         .btn-primary:active {
@@ -141,7 +145,7 @@
             background: white;
             color: #1e3c72;
             border: 2px solid white;
-            box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+            box-shadow: 0 4px 15px rgba(255,255,255,0.3);
         }
 
         .btn-secondary:hover {
@@ -195,7 +199,7 @@
 
         .service-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             display: block;
         }
@@ -389,6 +393,7 @@
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            height: 280px;
         }
 
         .gallery-item:hover {
@@ -397,20 +402,26 @@
 
         .gallery-item img {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
 
         .contact-section {
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.85) 0%, rgba(42, 82, 152, 0.85) 100%),
-                        url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=1200&q=80') center/cover;
+            background-image: linear-gradient(rgba(30, 60, 114, 0.7), rgba(42, 82, 152, 0.7)), url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             background-attachment: fixed;
             color: white;
             text-align: center;
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             position: relative;
             overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .contact-section::before {
@@ -420,13 +431,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 80% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 50%);
+            background: radial-gradient(circle at 80% 50%, rgba(255, 107, 53, 0.2) 0%, transparent 50%);
             pointer-events: none;
         }
 
         .contact-content {
             position: relative;
             z-index: 2;
+            max-width: 600px;
         }
 
         .contact-section h2 {
@@ -475,7 +487,7 @@
             }
 
             .hero {
-                min-height: 400px;
+                min-height: 500px;
                 padding: 4rem 2rem;
             }
 
@@ -506,6 +518,10 @@
             .gallery {
                 grid-template-columns: 1fr;
             }
+
+            .contact-section {
+                min-height: 400px;
+            }
         }
     </style>
 </head>
@@ -523,7 +539,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section with Background Image -->
+    <!-- Hero Section with Professional Car Background -->
     <section class="hero">
         <div class="hero-content">
             <h1>Make Your Car Feel Brand New Again</h1>
@@ -542,7 +558,7 @@
         
         <div class="services">
             <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1595815621481-d1d23d8248bf?w=400&q=80" alt="Interior Valet" class="service-image">
+                <img src="https://images.unsplash.com/photo-1595815621481-d1d23d8248bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Interior Valet" class="service-image">
                 <div class="service-content">
                     <div class="service-icon">🏎️</div>
                     <h3>Interior Valet</h3>
@@ -557,7 +573,7 @@
             </div>
 
             <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1629896272373-48c0f23e7f5f?w=400&q=80" alt="Exterior Valet" class="service-image">
+                <img src="https://images.unsplash.com/photo-1629896272373-48c0f23e7f5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Exterior Valet" class="service-image">
                 <div class="service-content">
                     <div class="service-icon">✨</div>
                     <h3>Exterior Valet</h3>
@@ -572,7 +588,7 @@
             </div>
 
             <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&q=80" alt="Full Detail" class="service-image">
+                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Full Detail" class="service-image">
                 <div class="service-content">
                     <div class="service-icon">🌟</div>
                     <h3>Full Detail</h3>
@@ -595,22 +611,22 @@
         
         <div class="gallery">
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=400&q=80" alt="Before and After 1">
+                <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Car Detailing 1">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&q=80" alt="Before and After 2">
+                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Car Detailing 2">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1629896272373-48c0f23e7f5f?w=400&q=80" alt="Before and After 3">
+                <img src="https://images.unsplash.com/photo-1629896272373-48c0f23e7f5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Car Detailing 3">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1595815621481-d1d23d8248bf?w=400&q=80" alt="Before and After 4">
+                <img src="https://images.unsplash.com/photo-1595815621481-d1d23d8248bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Car Detailing 4">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1485794169075-89ac7d1d76a9?w=400&q=80" alt="Before and After 5">
+                <img src="https://images.unsplash.com/photo-1485794169075-89ac7d1d76a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Car Detailing 5">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&q=80" alt="Before and After 6">
+                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Car Detailing 6">
             </div>
         </div>
     </section>
@@ -694,24 +710,22 @@
         </div>
     </section>
 
-    <!-- Contact Section with Background Image -->
+    <!-- Contact Section with Professional Garage Background -->
     <section id="contact" class="contact-section">
         <div class="contact-content">
-            <div class="container">
-                <h2>Ready to Book?</h2>
-                <p style="margin-bottom: 2rem; font-size: 1.1rem;">Get your car booked in today. For a quote, send us your vehicle, postcode and preferred service.</p>
-                
-                <div class="contact-info">
-                    <p><strong>📞 Call or text us for a quote or booking:</strong></p>
-                    <p><a href="tel:07570115862">07570 115862</a></p>
-                </div>
-
-                <div class="rating">
-                    ⭐ ⭐ ⭐ ⭐ ⭐ Professional Service
-                </div>
-
-                <button class="btn btn-primary" onclick="window.location.href='sms:07570115862?body=Hi%20Northside%20Auto%20Detail%2C%20I%20would%20like%20a%20quote%20for...'">Text for a Quote</button>
+            <h2>Ready to Book?</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">Get your car booked in today. For a quote, send us your vehicle, postcode and preferred service.</p>
+            
+            <div class="contact-info">
+                <p><strong>📞 Call or text us for a quote or booking:</strong></p>
+                <p><a href="tel:07570115862">07570 115862</a></p>
             </div>
+
+            <div class="rating">
+                ⭐ ⭐ ⭐ ⭐ ⭐ Professional Service
+            </div>
+
+            <button class="btn btn-primary" onclick="window.location.href='sms:07570115862?body=Hi%20Northside%20Auto%20Detail%2C%20I%20would%20like%20a%20quote%20for...'">Text for a Quote</button>
         </div>
     </section>
 
