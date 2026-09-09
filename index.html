@@ -58,8 +58,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.6), rgba(255, 107, 53, 0.4)), 
-                        linear-gradient(to right, #1e3c72, #2a5298);
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgb(30,60,114);stop-opacity:1" /><stop offset="100%" style="stop-color:rgb(42,82,152);stop-opacity:1" /></linearGradient></defs><rect width="1600" height="800" fill="url(%23grad1)"/><rect x="100" y="150" width="300" height="200" rx="20" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/><circle cx="400" cy="350" r="80" fill="rgba(255,107,53,0.15)"/><rect x="800" y="200" width="350" height="220" rx="20" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/><circle cx="200" cy="600" r="60" fill="rgba(255,107,53,0.1)"/></svg>');
             background-size: cover;
             background-position: center;
             color: white;
@@ -71,28 +70,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
         }
 
         .hero::before {
-            content: '🚗';
-            position: absolute;
-            font-size: 400px;
-            opacity: 0.08;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-        }
-
-        .hero::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.2) 0%, transparent 50%);
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.3), rgba(255, 107, 53, 0.2));
             pointer-events: none;
         }
 
@@ -211,12 +198,8 @@
         .service-image {
             width: 100%;
             height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            background: linear-gradient(135deg, #ff6b35, #ff8555);
-            color: white;
+            object-fit: cover;
+            display: block;
         }
 
         .service-content {
@@ -396,34 +379,10 @@
             line-height: 1.8;
         }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .gallery-item {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            height: 280px;
-            background: linear-gradient(135deg, #ff6b35, #ff8555);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 100px;
-            color: white;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
         .contact-section {
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.7), rgba(255, 107, 53, 0.3)), 
-                        linear-gradient(to right, #1e3c72, #2a5298);
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800"><defs><linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgb(30,60,114);stop-opacity:1" /><stop offset="100%" style="stop-color:rgb(42,82,152);stop-opacity:1" /></linearGradient></defs><rect width="1600" height="800" fill="url(%23grad2)"/><circle cx="300" cy="200" r="100" fill="rgba(255,255,255,0.1)"/><rect x="600" y="300" width="400" height="300" rx="30" fill="rgba(255,107,53,0.1)" stroke="rgba(255,107,53,0.2)" stroke-width="2"/><circle cx="1400" cy="500" r="80" fill="rgba(255,255,255,0.08)"/></svg>');
+            background-size: cover;
+            background-position: center;
             color: white;
             text-align: center;
             padding: 6rem 2rem;
@@ -433,28 +392,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: inset 0 0 100px rgba(0,0,0,0.3);
         }
 
         .contact-section::before {
-            content: '🔧';
-            position: absolute;
-            font-size: 300px;
-            opacity: 0.1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-        }
-
-        .contact-section::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 80% 50%, rgba(255, 107, 53, 0.2) 0%, transparent 50%);
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.3), rgba(255, 107, 53, 0.2));
             pointer-events: none;
         }
 
@@ -538,10 +485,6 @@
                 padding: 1.5rem;
             }
 
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-
             .contact-section {
                 min-height: 400px;
             }
@@ -556,13 +499,12 @@
             <ul>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section with Professional Background -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Make Your Car Feel Brand New Again</h1>
@@ -574,16 +516,16 @@
         </div>
     </section>
 
-    <!-- Services Section with Visual Icons -->
+    <!-- Services Section -->
     <section id="services" class="container">
         <h2>What We Do</h2>
         <p class="section-subtitle">Detailing that makes a difference. Choose a quick refresh or give your car the full treatment.</p>
         
         <div class="services">
             <div class="service-card">
-                <div class="service-image">🏎️</div>
+                <img src="https://via.placeholder.com/400x220/ff6b35/ffffff?text=Interior+Valet" alt="Interior Valet" class="service-image">
                 <div class="service-content">
-                    <h3>Interior Valet</h3>
+                    <h3>🏎️ Interior Valet</h3>
                     <p>Vacuum, mats, plastics, glass and a thorough clean of the cabin.</p>
                     <ul>
                         <li>Deep vacuum & carpet cleaning</li>
@@ -595,9 +537,9 @@
             </div>
 
             <div class="service-card">
-                <div class="service-image">✨</div>
+                <img src="https://via.placeholder.com/400x220/2a5298/ffffff?text=Exterior+Valet" alt="Exterior Valet" class="service-image">
                 <div class="service-content">
-                    <h3>Exterior Valet</h3>
+                    <h3>✨ Exterior Valet</h3>
                     <p>Safe hand wash, wheels, tyres, drying and exterior finishing.</p>
                     <ul>
                         <li>Professional hand wash</li>
@@ -609,9 +551,9 @@
             </div>
 
             <div class="service-card">
-                <div class="service-image">🌟</div>
+                <img src="https://via.placeholder.com/400x220/1e3c72/ffffff?text=Full+Detail" alt="Full Detail" class="service-image">
                 <div class="service-content">
-                    <h3>Full Detail</h3>
+                    <h3>🌟 Full Detail</h3>
                     <p>Our deepest clean, combining the interior and exterior for a complete transformation.</p>
                     <ul>
                         <li>Complete interior detail</li>
@@ -621,21 +563,6 @@
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="container">
-        <h2>Our Work</h2>
-        <p class="section-subtitle">See the transformations we've made to customers' cars</p>
-        
-        <div class="gallery">
-            <div class="gallery-item">🚗 Before</div>
-            <div class="gallery-item">✨ After</div>
-            <div class="gallery-item">🚗 Before</div>
-            <div class="gallery-item">✨ After</div>
-            <div class="gallery-item">🚗 Before</div>
-            <div class="gallery-item">✨ After</div>
         </div>
     </section>
 
@@ -718,7 +645,7 @@
         </div>
     </section>
 
-    <!-- Contact Section with Professional Background -->
+    <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="contact-content">
             <h2>Ready to Book?</h2>
