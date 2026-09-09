@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northside Auto Detail - Mobile Car Valeting & Detailing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button, .btn {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1e3c72;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #1e3c72;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .pricing {
+            background: #f8f9fa;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .price-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .price-card:hover {
+            transform: scale(1.05);
+        }
+
+        .price-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            color: #ff6b35;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .price-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 1.5rem 0;
+            color: #666;
+        }
+
+        .price-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .price-card li:last-child {
+            border-bottom: none;
+        }
+
+        .process {
+            background: white;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #ff6b35;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: #666;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .contact-section h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #0f1e3a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            button, .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">🚗 Northside Auto Detail</div>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#process">How It Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Make Your Car Feel Brand New Again</h1>
+        <p>Professional interior cleans, exterior washes and full details brought to your home or workplace.</p>
+        <div class="cta-buttons">
+            <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get a Quote</button>
+            <button class="btn btn-secondary" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">View Packages</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container">
+        <h2>What We Do</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 3rem;">Detailing that makes a difference. Choose a quick refresh or give your car the full treatment.</p>
+        
+        <div class="services">
+            <div class="service-card">
+                <h3>🏎️ Interior Valet</h3>
+                <p>Vacuum, mats, plastics, glass and a thorough clean of the cabin.</p>
+                <ul style="color: #666;">
+                    <li>✓ Deep vacuum</li>
+                    <li>✓ Mat cleaning</li>
+                    <li>✓ Plastic restoration</li>
+                    <li>✓ Window cleaning</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>✨ Exterior Valet</h3>
+                <p>Safe hand wash, wheels, tyres, drying and exterior finishing.</p>
+                <ul style="color: #666;">
+                    <li>✓ Hand wash</li>
+                    <li>✓ Wheel cleaning</li>
+                    <li>✓ Tyre treatment</li>
+                    <li>✓ Professional drying</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>🌟 Full Detail</h3>
+                <p>Our deepest clean, combining the interior and exterior for a complete transformation.</p>
+                <ul style="color: #666;">
+                    <li>✓ Full interior detail</li>
+                    <li>✓ Full exterior detail</li>
+                    <li>✓ Paint protection</li>
+                    <li>✓ Extra attention to details</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Simple Pricing</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 3rem;">Choose your clean</p>
+            
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Quick Clean</h3>
+                    <div class="price">£12</div>
+                    <ul>
+                        <li>✓ Exterior hand wash</li>
+                        <li>✓ Wheels & tyres</li>
+                        <li>✓ Interior vacuum</li>
+                        <li>✓ Windows</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+                </div>
+
+                <div class="price-card">
+                    <h3>Premium Valet</h3>
+                    <div class="price">£25</div>
+                    <ul>
+                        <li>✓ Everything in Quick Clean</li>
+                        <li>✓ Deep interior clean</li>
+                        <li>✓ Dashboard & plastics</li>
+                        <li>✓ Detailed finish</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+                </div>
+
+                <div class="price-card">
+                    <h3>Full Detail</h3>
+                    <div class="price">£35</div>
+                    <ul>
+                        <li>✓ Full interior detail</li>
+                        <li>✓ Full exterior detail</li>
+                        <li>✓ Paint-safe hand wash</li>
+                        <li>✓ Extra attention</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Request Quote</button>
+                </div>
+            </div>
+            
+            <p style="text-align: center; color: #666; margin-top: 2rem; font-size: 0.9rem;">Prices are starting prices and may vary by vehicle size and condition.</p>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <h2>How It Works</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 3rem;">Three easy steps to a beautiful car</p>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Send Your Details</h3>
+                    <p>Tell us your car, location and which service you want.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Your Quote</h3>
+                    <p>We'll confirm the price and arrange a time that suits you.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>We Do The Detail</h3>
+                    <p>We arrive at the agreed location and get your car looking its best.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Ready to Book?</h2>
+            <p style="margin-bottom: 2rem;">Get your car booked in. For a quote, send us your vehicle, postcode and preferred service.</p>
+            
+            <div class="contact-info">
+                <p><strong>📞 Call or text us for a quote or booking:</strong></p>
+                <p><a href="tel:07570115862">07570 115862</a></p>
+            </div>
+
+            <button class="btn btn-primary" onclick="window.location.href='sms:07570115862?body=Hi%20Northside%20Auto%20Detail%2C%20I%20would%20like%20a%20quote%20for...'">Text for a Quote</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Northside Auto Detail · Mobile car valeting & detailing</p>
+        <p>Professional service. Outstanding results.</p>
+    </footer>
+</body>
+</html>
