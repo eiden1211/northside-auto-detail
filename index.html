@@ -24,7 +24,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         nav {
@@ -58,21 +58,45 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.85) 0%, rgba(42, 82, 152, 0.85) 100%), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="car-pattern" patternUnits="userSpaceOnUse" width="400" height="400"><circle cx="100" cy="100" r="80" fill="rgba(255,255,255,0.05)"/><circle cx="300" cy="200" r="60" fill="rgba(255,255,255,0.03)"/><circle cx="200" cy="350" r="70" fill="rgba(255,255,255,0.04)"/></pattern></defs><rect width="1200" height="600" fill="url(%23car-pattern)"/></svg>');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .cta-buttons {
@@ -83,36 +107,44 @@
         }
 
         button, .btn {
-            padding: 0.75rem 2rem;
+            padding: 0.85rem 2.5rem;
             font-size: 1rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
+            font-weight: 600;
         }
 
         .btn-primary {
             background: #ff6b35;
             color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
         }
 
         .btn-primary:hover {
             background: #e55a2b;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
             background: white;
             color: #1e3c72;
             border: 2px solid white;
+            box-shadow: 0 4px 15px rgba(255,255,255,0.2);
         }
 
         .btn-secondary:hover {
             background: transparent;
             color: white;
+            transform: translateY(-3px);
         }
 
         .container {
@@ -122,80 +154,135 @@
         }
 
         section {
-            padding: 4rem 0;
+            padding: 5rem 0;
         }
 
         section h2 {
-            font-size: 2rem;
-            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             text-align: center;
             color: #1e3c72;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
         }
 
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             margin-bottom: 2rem;
         }
 
         .service-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 4px solid #ff6b35;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #ff6b35, #ff8555);
+            opacity: 0.05;
+            border-radius: 50%;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
         .service-card h3 {
             color: #1e3c72;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            font-weight: 600;
         }
 
         .service-card p {
             color: #666;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .service-card ul {
+            list-style: none;
+            color: #666;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff6b35;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
         .pricing {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
         }
 
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .price-card {
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             text-align: center;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            position: relative;
+            border: 2px solid transparent;
         }
 
         .price-card:hover {
             transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: #ff6b35;
         }
 
         .price-card h3 {
             color: #1e3c72;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            font-weight: 600;
         }
 
         .price {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #ff6b35;
-            font-weight: bold;
+            font-weight: 700;
             margin: 1rem 0;
         }
 
@@ -207,8 +294,18 @@
         }
 
         .price-card li {
-            padding: 0.5rem 0;
+            padding: 0.6rem 0;
             border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .price-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff6b35;
+            font-weight: bold;
         }
 
         .price-card li:last-child {
@@ -227,37 +324,69 @@
 
         .step {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .step:hover {
+            background: #fff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .step-number {
-            width: 60px;
-            height: 60px;
-            background: #ff6b35;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8555 100%);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
-            margin: 0 auto 1rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
         }
 
         .step h3 {
             color: #1e3c72;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .step p {
             color: #666;
+            line-height: 1.8;
         }
 
         .contact-section {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%),
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="dots" patternUnits="userSpaceOnUse" width="50" height="50"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1200" height="600" fill="url(%23dots)"/></svg>');
+            background-size: cover;
             color: white;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 80% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
         }
 
         .contact-section h2 {
@@ -266,7 +395,7 @@
         }
 
         .contact-info {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
         }
 
@@ -274,10 +403,12 @@
             color: #ff6b35;
             text-decoration: none;
             font-weight: bold;
+            transition: all 0.3s;
         }
 
         .contact-info a:hover {
             text-decoration: underline;
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
         }
 
         footer {
@@ -287,6 +418,16 @@
             padding: 2rem;
         }
 
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .rating {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 gap: 1rem;
@@ -294,7 +435,11 @@
             }
 
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
             }
 
             .cta-buttons {
@@ -303,6 +448,14 @@
 
             button, .btn {
                 width: 100%;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-card, .price-card {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -323,50 +476,55 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Make Your Car Feel Brand New Again</h1>
-        <p>Professional interior cleans, exterior washes and full details brought to your home or workplace.</p>
-        <div class="cta-buttons">
-            <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get a Quote</button>
-            <button class="btn btn-secondary" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">View Packages</button>
+        <div class="hero-content">
+            <h1>Make Your Car Feel Brand New Again</h1>
+            <p>Professional interior cleans, exterior washes and full details brought to your home or workplace.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get a Quote</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">View Packages</button>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="container">
         <h2>What We Do</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 3rem;">Detailing that makes a difference. Choose a quick refresh or give your car the full treatment.</p>
+        <p class="section-subtitle">Detailing that makes a difference. Choose a quick refresh or give your car the full treatment.</p>
         
         <div class="services">
             <div class="service-card">
-                <h3>🏎️ Interior Valet</h3>
+                <div class="service-icon">🏎️</div>
+                <h3>Interior Valet</h3>
                 <p>Vacuum, mats, plastics, glass and a thorough clean of the cabin.</p>
-                <ul style="color: #666;">
-                    <li>✓ Deep vacuum</li>
-                    <li>✓ Mat cleaning</li>
-                    <li>✓ Plastic restoration</li>
-                    <li>✓ Window cleaning</li>
+                <ul>
+                    <li>Deep vacuum & carpet cleaning</li>
+                    <li>Mat cleaning & treatment</li>
+                    <li>Plastic restoration</li>
+                    <li>Window & mirror cleaning</li>
                 </ul>
             </div>
 
             <div class="service-card">
-                <h3>✨ Exterior Valet</h3>
+                <div class="service-icon">✨</div>
+                <h3>Exterior Valet</h3>
                 <p>Safe hand wash, wheels, tyres, drying and exterior finishing.</p>
-                <ul style="color: #666;">
-                    <li>✓ Hand wash</li>
-                    <li>✓ Wheel cleaning</li>
-                    <li>✓ Tyre treatment</li>
-                    <li>✓ Professional drying</li>
+                <ul>
+                    <li>Professional hand wash</li>
+                    <li>Wheel & tyre cleaning</li>
+                    <li>Tyre shine treatment</li>
+                    <li>Professional drying</li>
                 </ul>
             </div>
 
             <div class="service-card">
-                <h3>🌟 Full Detail</h3>
+                <div class="service-icon">🌟</div>
+                <h3>Full Detail</h3>
                 <p>Our deepest clean, combining the interior and exterior for a complete transformation.</p>
-                <ul style="color: #666;">
-                    <li>✓ Full interior detail</li>
-                    <li>✓ Full exterior detail</li>
-                    <li>✓ Paint protection</li>
-                    <li>✓ Extra attention to details</li>
+                <ul>
+                    <li>Complete interior detail</li>
+                    <li>Complete exterior detail</li>
+                    <li>Paint-safe hand wash</li>
+                    <li>Extra attention to details</li>
                 </ul>
             </div>
         </div>
@@ -376,47 +534,50 @@
     <section id="pricing" class="pricing">
         <div class="container">
             <h2>Simple Pricing</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 3rem;">Choose your clean</p>
+            <p class="section-subtitle">Choose your clean - Professional service at affordable prices</p>
             
             <div class="pricing-grid">
                 <div class="price-card">
                     <h3>Quick Clean</h3>
                     <div class="price">£12</div>
+                    <p style="color: #999; margin-bottom: 1rem;">Perfect for regular maintenance</p>
                     <ul>
-                        <li>✓ Exterior hand wash</li>
-                        <li>✓ Wheels & tyres</li>
-                        <li>✓ Interior vacuum</li>
-                        <li>✓ Windows</li>
+                        <li>Exterior hand wash</li>
+                        <li>Wheels & tyres</li>
+                        <li>Interior vacuum</li>
+                        <li>Windows</li>
                     </ul>
-                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Book Now</button>
                 </div>
 
                 <div class="price-card">
                     <h3>Premium Valet</h3>
                     <div class="price">£25</div>
+                    <p style="color: #999; margin-bottom: 1rem;">Most popular choice</p>
                     <ul>
-                        <li>✓ Everything in Quick Clean</li>
-                        <li>✓ Deep interior clean</li>
-                        <li>✓ Dashboard & plastics</li>
-                        <li>✓ Detailed finish</li>
+                        <li>Everything in Quick Clean</li>
+                        <li>Deep interior clean</li>
+                        <li>Dashboard & plastics</li>
+                        <li>Detailed finish</li>
                     </ul>
-                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Book Now</button>
                 </div>
 
                 <div class="price-card">
                     <h3>Full Detail</h3>
                     <div class="price">£35</div>
+                    <p style="color: #999; margin-bottom: 1rem;">Complete transformation</p>
                     <ul>
-                        <li>✓ Full interior detail</li>
-                        <li>✓ Full exterior detail</li>
-                        <li>✓ Paint-safe hand wash</li>
-                        <li>✓ Extra attention</li>
+                        <li>Full interior detail</li>
+                        <li>Full exterior detail</li>
+                        <li>Paint-safe hand wash</li>
+                        <li>Extra attention to detail</li>
                     </ul>
-                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Request Quote</button>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Request Quote</button>
                 </div>
             </div>
             
-            <p style="text-align: center; color: #666; margin-top: 2rem; font-size: 0.9rem;">Prices are starting prices and may vary by vehicle size and condition.</p>
+            <p class="section-subtitle" style="margin-top: 3rem; font-size: 0.95rem; color: #999;">Prices are starting prices and may vary by vehicle size and condition.</p>
         </div>
     </section>
 
@@ -424,25 +585,25 @@
     <section id="process" class="process">
         <div class="container">
             <h2>How It Works</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 3rem;">Three easy steps to a beautiful car</p>
+            <p class="section-subtitle">Three easy steps to a beautiful car</p>
             
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Send Your Details</h3>
-                    <p>Tell us your car, location and which service you want.</p>
+                    <p>Tell us your car, location and which service you want. We'll respond quickly with availability.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Get Your Quote</h3>
-                    <p>We'll confirm the price and arrange a time that suits you.</p>
+                    <p>We'll confirm the price and arrange a time that suits you perfectly.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>We Do The Detail</h3>
-                    <p>We arrive at the agreed location and get your car looking its best.</p>
+                    <p>We arrive at the agreed location and get your car looking its best in no time.</p>
                 </div>
             </div>
         </div>
@@ -450,16 +611,22 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Ready to Book?</h2>
-            <p style="margin-bottom: 2rem;">Get your car booked in. For a quote, send us your vehicle, postcode and preferred service.</p>
-            
-            <div class="contact-info">
-                <p><strong>📞 Call or text us for a quote or booking:</strong></p>
-                <p><a href="tel:07570115862">07570 115862</a></p>
-            </div>
+        <div class="contact-content">
+            <div class="container">
+                <h2>Ready to Book?</h2>
+                <p style="margin-bottom: 2rem; font-size: 1.1rem;">Get your car booked in today. For a quote, send us your vehicle, postcode and preferred service.</p>
+                
+                <div class="contact-info">
+                    <p><strong>📞 Call or text us for a quote or booking:</strong></p>
+                    <p><a href="tel:07570115862">07570 115862</a></p>
+                </div>
 
-            <button class="btn btn-primary" onclick="window.location.href='sms:07570115862?body=Hi%20Northside%20Auto%20Detail%2C%20I%20would%20like%20a%20quote%20for...'">Text for a Quote</button>
+                <div class="rating">
+                    ⭐ ⭐ ⭐ ⭐ ⭐ Professional Service
+                </div>
+
+                <button class="btn btn-primary" onclick="window.location.href='sms:07570115862?body=Hi%20Northside%20Auto%20Detail%2C%20I%20would%20like%20a%20quote%20for...'">Text for a Quote</button>
+            </div>
         </div>
     </section>
 
