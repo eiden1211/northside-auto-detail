@@ -58,15 +58,18 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.85) 0%, rgba(42, 82, 152, 0.85) 100%), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="car-pattern" patternUnits="userSpaceOnUse" width="400" height="400"><circle cx="100" cy="100" r="80" fill="rgba(255,255,255,0.05)"/><circle cx="300" cy="200" r="60" fill="rgba(255,255,255,0.03)"/><circle cx="200" cy="350" r="70" fill="rgba(255,255,255,0.04)"/></pattern></defs><rect width="1200" height="600" fill="url(%23car-pattern)"/></svg>');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.75) 0%, rgba(42, 82, 152, 0.75) 100%), 
+                        url('https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1200&q=80') center/cover;
+            background-attachment: fixed;
             color: white;
             padding: 8rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero::before {
@@ -76,7 +79,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -89,14 +92,14 @@
             font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            opacity: 0.98;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .cta-buttons {
@@ -181,13 +184,25 @@
 
         .service-card {
             background: white;
-            padding: 2.5rem;
+            padding: 0;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: all 0.3s;
             border-top: 4px solid #ff6b35;
             position: relative;
             overflow: hidden;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-content {
+            padding: 2.5rem;
+            position: relative;
         }
 
         .service-card::before {
@@ -362,10 +377,35 @@
             line-height: 1.8;
         }
 
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
         .contact-section {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%),
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="dots" patternUnits="userSpaceOnUse" width="50" height="50"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1200" height="600" fill="url(%23dots)"/></svg>');
-            background-size: cover;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.85) 0%, rgba(42, 82, 152, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=1200&q=80') center/cover;
+            background-attachment: fixed;
             color: white;
             text-align: center;
             padding: 5rem 2rem;
@@ -380,7 +420,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 80% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 80% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -400,7 +440,7 @@
         }
 
         .contact-info a {
-            color: #ff6b35;
+            color: #ffd700;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
@@ -408,7 +448,7 @@
 
         .contact-info a:hover {
             text-decoration: underline;
-            text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         footer {
@@ -434,6 +474,11 @@
                 font-size: 0.9rem;
             }
 
+            .hero {
+                min-height: 400px;
+                padding: 4rem 2rem;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -457,6 +502,10 @@
             .service-card, .price-card {
                 padding: 1.5rem;
             }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -468,13 +517,13 @@
             <ul>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#process">How It Works</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Background Image -->
     <section class="hero">
         <div class="hero-content">
             <h1>Make Your Car Feel Brand New Again</h1>
@@ -486,46 +535,82 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section with Images -->
     <section id="services" class="container">
         <h2>What We Do</h2>
         <p class="section-subtitle">Detailing that makes a difference. Choose a quick refresh or give your car the full treatment.</p>
         
         <div class="services">
             <div class="service-card">
-                <div class="service-icon">🏎️</div>
-                <h3>Interior Valet</h3>
-                <p>Vacuum, mats, plastics, glass and a thorough clean of the cabin.</p>
-                <ul>
-                    <li>Deep vacuum & carpet cleaning</li>
-                    <li>Mat cleaning & treatment</li>
-                    <li>Plastic restoration</li>
-                    <li>Window & mirror cleaning</li>
-                </ul>
+                <img src="https://images.unsplash.com/photo-1595815621481-d1d23d8248bf?w=400&q=80" alt="Interior Valet" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">🏎️</div>
+                    <h3>Interior Valet</h3>
+                    <p>Vacuum, mats, plastics, glass and a thorough clean of the cabin.</p>
+                    <ul>
+                        <li>Deep vacuum & carpet cleaning</li>
+                        <li>Mat cleaning & treatment</li>
+                        <li>Plastic restoration</li>
+                        <li>Window & mirror cleaning</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="service-card">
-                <div class="service-icon">✨</div>
-                <h3>Exterior Valet</h3>
-                <p>Safe hand wash, wheels, tyres, drying and exterior finishing.</p>
-                <ul>
-                    <li>Professional hand wash</li>
-                    <li>Wheel & tyre cleaning</li>
-                    <li>Tyre shine treatment</li>
-                    <li>Professional drying</li>
-                </ul>
+                <img src="https://images.unsplash.com/photo-1629896272373-48c0f23e7f5f?w=400&q=80" alt="Exterior Valet" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">✨</div>
+                    <h3>Exterior Valet</h3>
+                    <p>Safe hand wash, wheels, tyres, drying and exterior finishing.</p>
+                    <ul>
+                        <li>Professional hand wash</li>
+                        <li>Wheel & tyre cleaning</li>
+                        <li>Tyre shine treatment</li>
+                        <li>Professional drying</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="service-card">
-                <div class="service-icon">🌟</div>
-                <h3>Full Detail</h3>
-                <p>Our deepest clean, combining the interior and exterior for a complete transformation.</p>
-                <ul>
-                    <li>Complete interior detail</li>
-                    <li>Complete exterior detail</li>
-                    <li>Paint-safe hand wash</li>
-                    <li>Extra attention to details</li>
-                </ul>
+                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&q=80" alt="Full Detail" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">🌟</div>
+                    <h3>Full Detail</h3>
+                    <p>Our deepest clean, combining the interior and exterior for a complete transformation.</p>
+                    <ul>
+                        <li>Complete interior detail</li>
+                        <li>Complete exterior detail</li>
+                        <li>Paint-safe hand wash</li>
+                        <li>Extra attention to details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="container">
+        <h2>Our Work</h2>
+        <p class="section-subtitle">See the transformations we've made to customers' cars</p>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=400&q=80" alt="Before and After 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&q=80" alt="Before and After 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1629896272373-48c0f23e7f5f?w=400&q=80" alt="Before and After 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1595815621481-d1d23d8248bf?w=400&q=80" alt="Before and After 4">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1485794169075-89ac7d1d76a9?w=400&q=80" alt="Before and After 5">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&q=80" alt="Before and After 6">
             </div>
         </div>
     </section>
@@ -582,7 +667,7 @@
     </section>
 
     <!-- How It Works Section -->
-    <section id="process" class="process">
+    <section class="process">
         <div class="container">
             <h2>How It Works</h2>
             <p class="section-subtitle">Three easy steps to a beautiful car</p>
@@ -609,7 +694,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section with Background Image -->
     <section id="contact" class="contact-section">
         <div class="contact-content">
             <div class="container">
